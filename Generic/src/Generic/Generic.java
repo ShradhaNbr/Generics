@@ -5,9 +5,9 @@ import java.util.Arrays;
 public class Generic<T extends Comparable<T>> {
 	T[] elements;
 
-	public Generic(T[] elements) {
-		this.elements = elements;
-	}
+	//public Generic(T[] elements) {
+		//this.elements = elements;
+	//}
 
 	public static void main(String[] args) {
 		Integer[] integerMax = { 5, 90, 555, 26, 55 };
@@ -16,7 +16,7 @@ public class Generic<T extends Comparable<T>> {
 		System.out.println("Maximum value " + maximum(integerMax));
 		System.out.println("Maximum value " + maximum(floatMax));
 		System.out.println("Maximum value " + maximum(stringMax));
-	}
+		}
 
 	/*
 	 * Generic Method to get maximum value using array sort.
@@ -24,7 +24,15 @@ public class Generic<T extends Comparable<T>> {
 	 * @param elements.
 	 * 
 	 */
-	public static <T extends Comparable<T>> T maximum(T[] elements) {
+	
+	public static <T> void printMax(T[] elements, T maximum) {
+		for (T i : elements) {
+			System.out.println(i);
+		}
+		System.out.printf("%d of %d is: ", maximum, elements);
+	}
+	private static <T extends Comparable<T>> T maximum(T[] elements) {
+		
 		Arrays.sort(elements);
 		T maximum = elements[(elements.length) - 1];
 		return maximum;
